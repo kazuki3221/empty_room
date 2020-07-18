@@ -30,6 +30,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 gem 'omniauth-twitter'
+# 日本語化
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
+
+# Bootstrap
+gem 'devise-bootstrap-views', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
