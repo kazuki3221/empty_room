@@ -27,9 +27,6 @@ Devise.setup do |config|
 
 
   config.mailer_sender = "peacesparkl@gmail.com"
-  # lock sessings
-
-  config.omniauth :twitter, '3TFGTa1z9jCpikd07xE58MEGf', 'kCAOrzketyXltUHz093tjA3llcWn38sRadYutO6fF5l9eudA8O', callback_url: 'http://127.0.0.1:3000/users/auth/twitter/callback'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
