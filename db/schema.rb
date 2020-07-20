@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_20_093022) do
+ActiveRecord::Schema.define(version: 2020_07_20_095417) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 2020_07_20_093022) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.date "start_stay"
+    t.date "end_stay"
+    t.integer "customer_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_sales_on_customer_id"
+    t.index ["room_id"], name: "index_sales_on_room_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -70,4 +81,6 @@ ActiveRecord::Schema.define(version: 2020_07_20_093022) do
 
   add_foreign_key "resevations", "customers"
   add_foreign_key "resevations", "rooms"
+  add_foreign_key "sales", "customers"
+  add_foreign_key "sales", "rooms"
 end
