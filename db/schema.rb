@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_20_095417) do
+ActiveRecord::Schema.define(version: 2020_07_20_101014) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_07_20_095417) do
     t.text "placeholder"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "birthday"
   end
 
   create_table "resevations", force: :cascade do |t|
@@ -29,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_07_20_095417) do
     t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_stay"
+    t.date "end_stay"
     t.index ["customer_id"], name: "index_resevations_on_customer_id"
     t.index ["room_id"], name: "index_resevations_on_room_id"
   end
