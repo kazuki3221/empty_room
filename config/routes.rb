@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/show'
   resources :customers
-
+  resources :resevations
 end
