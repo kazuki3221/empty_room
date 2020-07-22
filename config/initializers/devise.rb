@@ -25,7 +25,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
 
-
+  config.scoped_views = true
   config.mailer_sender = "peacesparkl@gmail.com"
 
   # Configure the class responsible to send e-mails.
