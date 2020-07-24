@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customer Scaffolds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name first</th>
+      <th>Name first kana</th>
+      <th>Name last</th>
+      <th>Name last</th>
+      <th>Tel</th>
+      <th>Placeholder</th>
+      <th>Birthday</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer_scaffolds.each do |customer_scaffold| %>
+      <tr>
+        <td><%= customer_scaffold.email %></td>
+        <td><%= customer_scaffold.name_first %></td>
+        <td><%= customer_scaffold.name_first_kana %></td>
+        <td><%= customer_scaffold.name_last %></td>
+        <td><%= customer_scaffold.name_last %></td>
+        <td><%= customer_scaffold.tel %></td>
+        <td><%= customer_scaffold.placeholder %></td>
+        <td><%= customer_scaffold.birthday %></td>
+        <td><%= link_to 'Show', customer_scaffold %></td>
+        <td><%= link_to 'Edit', edit_customer_scaffold_path(customer_scaffold) %></td>
+        <td><%= link_to 'Destroy', customer_scaffold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer Scaffold', new_customer_scaffold_path %>

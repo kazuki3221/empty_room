@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer_scaffold.email %>
+</p>
+
+<p>
+  <strong>Name first:</strong>
+  <%= @customer_scaffold.name_first %>
+</p>
+
+<p>
+  <strong>Name first kana:</strong>
+  <%= @customer_scaffold.name_first_kana %>
+</p>
+
+<p>
+  <strong>Name last:</strong>
+  <%= @customer_scaffold.name_last %>
+</p>
+
+<p>
+  <strong>Name last:</strong>
+  <%= @customer_scaffold.name_last %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @customer_scaffold.tel %>
+</p>
+
+<p>
+  <strong>Placeholder:</strong>
+  <%= @customer_scaffold.placeholder %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @customer_scaffold.birthday %>
+</p>
+
+<%= link_to 'Edit', edit_customer_scaffold_path(@customer_scaffold) %> |
+<%= link_to 'Back', customer_scaffolds_path %>

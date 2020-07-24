@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customer_scaffolds
   resources :room2s
   devise_for :users
 

@@ -1,0 +1,2 @@
+class CustomerScaffold < ApplicationRecord
+end
