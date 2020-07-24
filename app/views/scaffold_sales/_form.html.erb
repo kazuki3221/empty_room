@@ -11,27 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :start_stay %>
-    <%= form.date_select :start_stay %>
+<div class="nav">
+  <div class="nav-item">
+    <div class="field">
+      <%= form.label :start_stay %>
+      <%= form.date_select :start_stay %>
+    </div>
   </div>
-
+  <div class="nav-item">
   <div class="field">
     <%= form.label :end_stay %>
     <%= form.date_select :end_stay %>
   </div>
-
+  </div>
+  <div class="nav-item">
   <div class="field">
     <%= form.label :customer_scaffold_id %>
     <%= form.text_field :customer_scaffold_id %>
   </div>
-
+  </div>
+  <div class="nav-item">
   <div class="field">
     <%= form.label :room2_id %>
     <%= form.text_field :room2_id %>
   </div>
-
+  </div>
+  <div class="nav-item">
   <div class="actions">
     <%= form.submit %>
   </div>
+  </div>
+</div>
 <% end %>

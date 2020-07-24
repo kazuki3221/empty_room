@@ -1,27 +1,25 @@
 <header>
-      <ul class="nav">
+  <nav class="navbar navbar-expand navbar-light">
+    <div id="Navber">
+      <ul class="navbar-nav">
           <% if user_signed_in? %>
             <strong><%= link_to current_user.username, pages_show_path %></strong>
-            <div class="nav-item active">
-            <%= link_to 'プロフィール変更', edit_user_registration_path ,class: "btn btn-lg, btn-primary"%>
-            </div>
-            <div class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class: "btn btn-lg, btn-primary"%>
-            </div>
+            <li class="nav-item active">
+            <%= link_to 'プロフィール変更', edit_user_registration_path %>
+            </li>
+            <li class="nav-item active">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </li>
           <% else %>
-          <div class="row">
-           <div class="col-2">
-            <div class="form-group">
-              <%= link_to 'サインアップ', new_user_registration_path, class: "btn" %>
-            </div>
-           </div>
-            <div class="col-2">
-              <div class="form-group">
-              <%= link_to 'ログイン', new_user_session_path, class: "btn"%>
-              </div>
-            </div>
-          </div>
+            <li class="nav-item active">
+            <%= link_to 'サインアップ', new_user_registration_path %>
+            </li>
+            <li class="nav-item active">
+            <%= link_to 'ログイン', new_user_session_path %>
+            </li>
           <% end %>
       </ul>
+    </div>
+  </nav>
 </header>
 

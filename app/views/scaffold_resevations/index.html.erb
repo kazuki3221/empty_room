@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Scaffold Resevations</h1>
+<h1>Resevations</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Start stay</th>
-      <th>End stay</th>
-      <th>Customer scaffold</th>
-      <th>Room2</th>
+      <th scope="col" >Start stay</th>
+      <th scope="col" >End stay</th>
+      <th scope="col" >Customer scaffold</th>
+      <th scope="col" >Room2</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @scaffold_resevations.each do |scaffold_resevation| %>
+    <% @scaffold_resevations.each do |resevation| %>
       <tr>
-        <td><%= scaffold_resevation.start_stay %></td>
-        <td><%= scaffold_resevation.end_stay %></td>
-        <td><%= scaffold_resevation.customer_scaffold_id %></td>
-        <td><%= scaffold_resevation.room2_id %></td>
-        <td><%= link_to 'Show', scaffold_resevation %></td>
-        <td><%= link_to 'Edit', edit_scaffold_resevation_path(scaffold_resevation) %></td>
-        <td><%= link_to 'Destroy', scaffold_resevation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td scope="row"><%= resevation.start_stay %></td>
+        <td scope="row"><%= resevation.end_stay %></td>
+        <td scope="row"><%= resevation.customer_scaffold_id %></td>
+        <td scope="row"><%= resevation.room2_id %></td>
+        <td><%= link_to 'Show', resevation , class: "btn btn-outline-primary"%></td>
+        <td><%= link_to 'Edit', edit_scaffold_resevation_path(resevation) , class: "btn btn-raised btn-default" %></td>
+        <td><%= link_to 'Destroy', resevation, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-raised btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Scaffold Resevation', new_scaffold_resevation_path %>
+<%= link_to 'New Resevation', new_scaffold_resevation_path, class: 'btn btn-raised btn-primary' %>
