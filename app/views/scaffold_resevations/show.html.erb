@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start stay:</strong>
+  <%= @scaffold_resevation.start_stay %>
+</p>
+
+<p>
+  <strong>End stay:</strong>
+  <%= @scaffold_resevation.end_stay %>
+</p>
+
+<p>
+  <strong>Customer scaffold:</strong>
+  <%= @scaffold_resevation.customer_scaffold_id %>
+</p>
+
+<p>
+  <strong>Room2:</strong>
+  <%= @scaffold_resevation.room2_id %>
+</p>
+
+<%= link_to 'Edit', edit_scaffold_resevation_path(@scaffold_resevation) %> |
+<%= link_to 'Back', scaffold_resevations_path %>

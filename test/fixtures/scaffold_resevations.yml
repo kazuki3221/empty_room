@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_stay: 2020-07-24
+  end_stay: 2020-07-24
+  customer_scaffold: one
+  room2: one
+
+two:
+  start_stay: 2020-07-24
+  end_stay: 2020-07-24
+  customer_scaffold: two
+  room2: two

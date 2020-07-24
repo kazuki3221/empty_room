@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_024001) do
+ActiveRecord::Schema.define(version: 2020_07_24_043829) do
 
   create_table "customer_scaffolds", force: :cascade do |t|
     t.string "email"
@@ -78,6 +78,28 @@ ActiveRecord::Schema.define(version: 2020_07_24_024001) do
     t.index ["room_id"], name: "index_sales_on_room_id"
   end
 
+  create_table "scaffold_resevations", force: :cascade do |t|
+    t.date "start_stay"
+    t.date "end_stay"
+    t.integer "customer_scaffold_id", null: false
+    t.integer "room2_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_scaffold_id"], name: "index_scaffold_resevations_on_customer_scaffold_id"
+    t.index ["room2_id"], name: "index_scaffold_resevations_on_room2_id"
+  end
+
+  create_table "scaffold_sales", force: :cascade do |t|
+    t.date "start_stay"
+    t.date "end_stay"
+    t.integer "customer_scaffold_id", null: false
+    t.integer "room2_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_scaffold_id"], name: "index_scaffold_sales_on_customer_scaffold_id"
+    t.index ["room2_id"], name: "index_scaffold_sales_on_room2_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -109,4 +131,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_024001) do
   add_foreign_key "resevations", "rooms"
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "rooms"
+  add_foreign_key "scaffold_resevations", "customer_scaffolds"
+  add_foreign_key "scaffold_resevations", "room2s"
+  add_foreign_key "scaffold_sales", "customer_scaffolds"
+  add_foreign_key "scaffold_sales", "room2s"
 end

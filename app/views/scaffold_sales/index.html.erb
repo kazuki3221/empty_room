@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Scaffold Sales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start stay</th>
+      <th>End stay</th>
+      <th>Customer scaffold</th>
+      <th>Room2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scaffold_sales.each do |scaffold_sale| %>
+      <tr>
+        <td><%= scaffold_sale.start_stay %></td>
+        <td><%= scaffold_sale.end_stay %></td>
+        <td><%= scaffold_sale.customer_scaffold_id %></td>
+        <td><%= scaffold_sale.room2_id %></td>
+        <td><%= link_to 'Show', scaffold_sale %></td>
+        <td><%= link_to 'Edit', edit_scaffold_sale_path(scaffold_sale) %></td>
+        <td><%= link_to 'Destroy', scaffold_sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scaffold Sale', new_scaffold_sale_path %>
