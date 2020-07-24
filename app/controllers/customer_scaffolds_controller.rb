@@ -69,6 +69,6 @@ class CustomerScaffoldsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_scaffold_params
-      params.require(:customer_scaffold).permit(:email, :name_first, :name_first_kana, :name_last, :name_last, :tel, :placeholder, :birthday)
+      params.require(:customer_scaffold).permit(:email, :first_name, :first_name_kana, :last_name, :last_name_kana, :tel, :placeholder, :birthday)
     end
 end

@@ -21,10 +21,10 @@
     <% @customer_scaffolds.each do |customer_scaffold| %>
       <tr>
         <td><%= customer_scaffold.email %></td>
-        <td><%= customer_scaffold.name_first %></td>
-        <td><%= customer_scaffold.name_first_kana %></td>
-        <td><%= customer_scaffold.name_last %></td>
-        <td><%= customer_scaffold.name_last %></td>
+        <td><%= customer_scaffold.first_name %></td>
+        <td><%= customer_scaffold.first_name_kana %></td>
+        <td><%= customer_scaffold.last_name %></td>
+        <td><%= customer_scaffold.last_name_kana %></td>
         <td><%= customer_scaffold.tel %></td>
         <td><%= customer_scaffold.placeholder %></td>
         <td><%= customer_scaffold.birthday %></td>
