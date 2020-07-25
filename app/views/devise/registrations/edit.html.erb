@@ -1,15 +1,15 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>アカウント情報編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
  <!-- ユーザー名を追加 -->
-  <div class="field col-2"><br />
+  <div class="field col-3"><br />
     <%= f.label "ユーザー名" %><br />
     <%= f.text_field :username , class:"form-control", placeholder:"user name"%>
   </div>
 
-  <div class="field  col-2"><br />
+  <div class="field  col-3"><br />
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" , class:"form-control", placeholder:"email adress"%>
   </div>
@@ -19,8 +19,8 @@
   <% end %>
 
   <br />
-  <div class="field col-2">
-    <%= f.label :password %> <br /><i>(変更しない場合は開けて<br />おいてください。)</i>
+  <div class="field col-3">
+    <%= f.label :password %> <br /><i>(変更しない場合は開けておいてください。)</i>
     <%= f.password_field :password, autocomplete: "new-password" , class:"form-control", placeholder:"new password" %>
     <% if @minimum_password_length %>
       <em>最低<%= @minimum_password_length %>文字</em>
@@ -28,13 +28,16 @@
   </div>
 
   <br />
-  <div class="field col-2">
+  <div class="field col-3">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"new password"  %>
+    <% if @minimum_password_length %>
+      <em>最低<%= @minimum_password_length %>文字</em>
+    <% end %>
   </div>
   <br />
-  <div class="field col-2">
-    <%= f.label :current_password %> <br /><i>(変更を確認するには、現在のパスワードが必要です。)</i>
+  <div class="field col-3">
+    <%= f.label :current_password %> <br /><i>(変更を確認するには、<br />現在のパスワードが必要です。)</i>
     <%= f.password_field :current_password, autocomplete: "current-password" , class:"form-control", placeholder:"current password" %>
   </div>
     <br />

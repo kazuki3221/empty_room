@@ -1,0 +1,5 @@
+class AddSidesToRooms < ActiveRecord::Migration[6.0]
+  def change
+    add_column :rooms, :side, :string
+  end
+end

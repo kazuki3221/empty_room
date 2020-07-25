@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_043829) do
+ActiveRecord::Schema.define(version: 2020_07_25_071844) do
 
   create_table "customer_scaffolds", force: :cascade do |t|
     t.string "email"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_043829) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "side"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_043829) do
     t.boolean "smoke", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "side"
   end
 
   create_table "sales", force: :cascade do |t|
