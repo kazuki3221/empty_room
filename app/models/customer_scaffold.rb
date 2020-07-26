@@ -1,2 +1,0 @@
-class CustomerScaffold < ApplicationRecord
-end

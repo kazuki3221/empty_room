@@ -10,97 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_071844) do
-
-  create_table "customer_scaffolds", force: :cascade do |t|
-    t.string "email"
-    t.string "first_name"
-    t.string "first_name_kana"
-    t.string "last_name"
-    t.string "last_name_kana"
-    t.string "tel"
-    t.text "placeholder"
-    t.date "birthday"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "email"
-    t.string "name_first"
-    t.string "name_first_kana"
-    t.string "name_last"
-    t.string "name_last_kana"
-    t.string "tel"
-    t.text "placeholder"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.date "birthday"
-  end
-
-  create_table "resevations", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "room_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.date "start_stay"
-    t.date "end_stay"
-    t.index ["customer_id"], name: "index_resevations_on_customer_id"
-    t.index ["room_id"], name: "index_resevations_on_room_id"
-  end
-
-  create_table "room2s", force: :cascade do |t|
-    t.integer "number"
-    t.integer "floor"
-    t.string "room_type"
-    t.integer "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "side"
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.integer "number"
-    t.integer "floor"
-    t.string "room_type"
-    t.boolean "smoke", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "side"
-  end
-
-  create_table "sales", force: :cascade do |t|
-    t.date "start_stay"
-    t.date "end_stay"
-    t.integer "customer_id", null: false
-    t.integer "room_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_sales_on_customer_id"
-    t.index ["room_id"], name: "index_sales_on_room_id"
-  end
-
-  create_table "scaffold_resevations", force: :cascade do |t|
-    t.date "start_stay"
-    t.date "end_stay"
-    t.integer "customer_scaffold_id", null: false
-    t.integer "room2_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_scaffold_id"], name: "index_scaffold_resevations_on_customer_scaffold_id"
-    t.index ["room2_id"], name: "index_scaffold_resevations_on_room2_id"
-  end
-
-  create_table "scaffold_sales", force: :cascade do |t|
-    t.date "start_stay"
-    t.date "end_stay"
-    t.integer "customer_scaffold_id", null: false
-    t.integer "room2_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_scaffold_id"], name: "index_scaffold_sales_on_customer_scaffold_id"
-    t.index ["room2_id"], name: "index_scaffold_sales_on_room2_id"
-  end
+ActiveRecord::Schema.define(version: 2020_07_18_034012) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -122,19 +32,10 @@ ActiveRecord::Schema.define(version: 2020_07_25_071844) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "resevations", "customers"
-  add_foreign_key "resevations", "rooms"
-  add_foreign_key "sales", "customers"
-  add_foreign_key "sales", "rooms"
-  add_foreign_key "scaffold_resevations", "customer_scaffolds"
-  add_foreign_key "scaffold_resevations", "room2s"
-  add_foreign_key "scaffold_sales", "customer_scaffolds"
-  add_foreign_key "scaffold_sales", "room2s"
 end
