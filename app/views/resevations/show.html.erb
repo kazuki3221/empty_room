@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start stay:</strong>
+  <%= @resevation.start_stay %>
+</p>
+
+<p>
+  <strong>End start:</strong>
+  <%= @resevation.end_start %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @resevation.room_id %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @resevation.customer_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @resevation.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_resevation_path(@resevation) %> |
+<%= link_to 'Back', resevations_path %>

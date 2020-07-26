@@ -1,0 +1,42 @@
+<%= form_with(model: resevation, local: true) do |form| %>
+  <% if resevation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resevation.errors.count, "error") %> prohibited this resevation from being saved:</h2>
+
+      <ul>
+        <% resevation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_stay %>
+    <%= form.date_select :start_stay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_start %>
+    <%= form.date_select :end_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room_id %>
+    <%= form.text_field :room_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

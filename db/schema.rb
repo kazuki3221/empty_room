@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_062435) do
+ActiveRecord::Schema.define(version: 2020_07_26_074654) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 2020_07_26_062435) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "resevations", force: :cascade do |t|
+    t.date "start_stay"
+    t.date "end_start"
+    t.integer "room_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_resevations_on_customer_id"
+    t.index ["room_id"], name: "index_resevations_on_room_id"
+    t.index ["user_id"], name: "index_resevations_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.integer "number"
     t.integer "floor"
@@ -33,6 +46,17 @@ ActiveRecord::Schema.define(version: 2020_07_26_062435) do
     t.boolean "smoke"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.date "start_stay"
+    t.date "end_stay"
+    t.integer "customer_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_sales_on_customer_id"
+    t.index ["room_id"], name: "index_sales_on_room_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,10 +79,16 @@ ActiveRecord::Schema.define(version: 2020_07_26_062435) do
     t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "resevations", "customers"
+  add_foreign_key "resevations", "rooms"
+  add_foreign_key "resevations", "users"
+  add_foreign_key "sales", "customers"
+  add_foreign_key "sales", "rooms"
 end

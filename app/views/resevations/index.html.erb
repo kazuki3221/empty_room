@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resevations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start stay</th>
+      <th>End start</th>
+      <th>Room</th>
+      <th>Customer</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resevations.each do |resevation| %>
+      <tr>
+        <td><%= resevation.start_stay %></td>
+        <td><%= resevation.end_start %></td>
+        <td><%= resevation.room_id %></td>
+        <td><%= resevation.customer_id %></td>
+        <td><%= resevation.user_id %></td>
+        <td><%= link_to 'Show', resevation %></td>
+        <td><%= link_to 'Edit', edit_resevation_path(resevation) %></td>
+        <td><%= link_to 'Destroy', resevation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resevation', new_resevation_path %>
