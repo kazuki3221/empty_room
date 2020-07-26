@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rooms</h1>
+<h1>部屋一覧</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Number</th>
-      <th>Floor</th>
-      <th>Room type</th>
-      <th>Side</th>
-      <th>Smoke</th>
+      <th scope="col">部屋番号</th>
+      <th scope="col">階数</th>
+      <th scope="col">部屋のタイプ</th>
+      <th scope="col">サイド</th>
+      <th scope="col">喫煙可</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,19 +17,14 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= room.number %></td>
-        <td><%= room.floor %></td>
-        <td><%= room.room_type %></td>
-        <td><%= room.side %></td>
-        <td><%= room.smoke %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td scope="row"><%= room.number %></td>
+        <td scope="row"><%= room.floor %></td>
+        <td scope="row"><%= room.room_type %></td>
+        <td scope="row"><%= room.side %></td>
+        <td scope="row"><%= room.smoke %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Room', new_room_path %>
