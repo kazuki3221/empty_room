@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_074654) do
+ActiveRecord::Schema.define(version: 2020_07_26_085525) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_074654) do
     t.integer "floor"
     t.string "room_type"
     t.string "side"
-    t.boolean "smoke"
+    t.boolean "smoke", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
