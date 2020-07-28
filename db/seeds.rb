@@ -55,7 +55,26 @@ Room.create(number:612,floor:6,room_type:"ダブル",side:"電車側",smoke:true
 Room.create(number:613,floor:6,room_type:"ダブル",side:"電車側",smoke:true)
 Room.create(number:615,floor:6,room_type:"ダブル",side:"電車側",smoke:true)
 Room.create(number:616,floor:6,room_type:"シングル",side:"電車側",smoke:true)
-
+20.times do |n|
+  email = Faker::Internet.email
+  first_name = Faker::Name.first_name
+  first_name_kana = first_name
+  last_name = Faker::Name.last_name
+  last_name_kana = last_name
+  tel = "080XXXXYYYY"
+  placeholder = "sample"
+  birthday = Faker::Date.between_except(from: '2014-09-23', to: '2015-09-25', excepted: '2015-01-24')
+  Customer.create!(
+               email: email,
+               first_name: first_name,
+               first_name_kana: first_name_kana,
+               last_name: last_name,
+               last_name_kana: last_name,
+               tel: tel,
+               placeholder: placeholder,
+               birthday: birthday
+               )
+end
 
 
 

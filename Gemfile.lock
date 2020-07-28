@@ -58,6 +58,9 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -85,6 +88,8 @@ GEM
     devise-i18n (1.9.1)
       devise (>= 4.7.1)
     erubi (1.9.0)
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -228,12 +233,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
   devise
   devise-bootstrap-views (~> 1.0)
   devise-i18n
+  faker
   jbuilder (~> 2.7)
   listen (~> 3.2)
   omniauth-twitter
