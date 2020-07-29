@@ -1,10 +1,12 @@
 class ResevationsController < ApplicationController
   before_action :set_resevation, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /resevations
   # GET /resevations.json
   def index
     @resevations = Resevation.all
+
   end
 
   # GET /resevations/1
@@ -67,8 +69,16 @@ class ResevationsController < ApplicationController
       @resevation = Resevation.find(params[:id])
     end
 
+    def set_customer
+      @customer = Customer.find(params[:id])
+    end
+
     # Only allow a list of trusted parameters through.
     def resevation_params
       params.require(:resevation).permit(:start_stay, :end_start, :room_id, :customer_id, :user_id)
     end
-end
+
+    def cutomer_params
+      params.require(:customer).permit(:first_name, :last_name, :company)
+    end
+  end

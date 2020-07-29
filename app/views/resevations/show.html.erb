@@ -12,17 +12,22 @@
 
 <p>
   <strong>Room:</strong>
-  <%= @resevation.room_id %>
+  <%= @resevation.room.number %>
 </p>
 
 <p>
   <strong>Customer:</strong>
-  <%= @resevation.customer_id %>
+  <%= @resevation.customer.last_name  %><%= @resevation.customer.first_name %>
+</p>
+
+<p>
+<strong>Customer company:</strong>
+  <%= @resevation.customer.company %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @resevation.user_id %>
+  <%= @resevation.user.username %>
 </p>
 
 <%= link_to 'Edit', edit_resevation_path(@resevation) %> |

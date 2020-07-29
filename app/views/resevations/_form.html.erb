@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :room_id %>
-    <%= form.text_field :room_id %>
+    <%= form.select :room_id , Room.all.map{ |room|[room.number, room.id] } %>
   </div>
 
   <div class="field">
@@ -33,10 +33,12 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.select :user_id , User.all.map{ |user| [user.username, user.id] } %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+
