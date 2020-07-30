@@ -1,22 +1,25 @@
 class ResevationsController < ApplicationController
   before_action :set_resevation, only: [:show, :edit, :update, :destroy]
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
 
   # GET /resevations
   # GET /resevations.json
   def index
     @resevations = Resevation.all
-
   end
 
   # GET /resevations/1
   # GET /resevations/1.json
   def show
+    @resevations = Resevation.all
   end
 
   # GET /resevations/new
   def new
-    @resevation = Resevation.new
+    @resevation = Resevation.new(params[:resevation])
+    if @resevation.save
+    end
   end
 
   # GET /resevations/1/edit
@@ -26,8 +29,7 @@ class ResevationsController < ApplicationController
   # POST /resevations
   # POST /resevations.json
   def create
-    @resevation = Resevation.new(resevation_params)
-
+    @resevation = Resevation.new
     respond_to do |format|
       if @resevation.save
         format.html { redirect_to @resevation, notice: 'Resevation was successfully created.' }
@@ -69,16 +71,10 @@ class ResevationsController < ApplicationController
       @resevation = Resevation.find(params[:id])
     end
 
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def resevation_params
       params.require(:resevation).permit(:start_stay, :end_start, :room_id, :customer_id, :user_id)
     end
 
-    def cutomer_params
-      params.require(:customer).permit(:first_name, :last_name, :company)
-    end
+
   end

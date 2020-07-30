@@ -11,33 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :start_stay %>
-    <%= form.date_select :start_stay %>
-  </div>
+ <%= current_user.name %>
 
-  <div class="field">
-    <%= form.label :end_start %>
-    <%= form.date_select :end_start %>
-  </div>
+    <div class="form-row col-4">
+      <div class="form-group col-md-5">
+        <%= form.label :start_stay %>
+        <%= form.date_select :start_stay , {}, {:class => "form-control"}%>
+      </div>
 
-  <div class="field">
-    <%= form.label :room_id %>
-    <%= form.select :room_id , Room.all.map{ |room|[room.number, room.id] } %>
-  </div>
+      <div class="form-group col-md-5">
+        <%= form.label :end_start%>
+        <%= form.date_select :end_start, {}, {:class => "form-control"} %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
+    <div class="form-group col-3 ">
+      <%= form.label :room_id %>
+      <%= form.select :room_id , Room.all.map{ |room|[room.number, room.id] } , {}, {:class => "form-control"}%>
+    </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.select :user_id , User.all.map{ |user| [user.username, user.id] } %>
-  </div>
+    <div class="form-group col-3">
+      <%= form.label :customer_id %>
+      <%= form.select :customer_id , Customer.all.map{|customer|[customer.id]}, {}, {:class => "form-control"}%>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+  <div class="form-group col-3 ">
+    <%= form.submit '登録', class: "btn btn-raised btn-primary "%>
   </div>
 <% end %>
 
