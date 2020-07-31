@@ -18,8 +18,6 @@ class ResevationsController < ApplicationController
   # GET /resevations/new
   def new
     @resevation = Resevation.new(params[:resevation])
-    if @resevation.save
-    end
   end
 
   # GET /resevations/1/edit
@@ -29,7 +27,8 @@ class ResevationsController < ApplicationController
   # POST /resevations
   # POST /resevations.json
   def create
-    @resevation = Resevation.new
+    @resevation = Resevation.new(resevation_params)
+    @resevation.user_id = current_user.id
     respond_to do |format|
       if @resevation.save
         format.html { redirect_to @resevation, notice: 'Resevation was successfully created.' }
@@ -45,6 +44,7 @@ class ResevationsController < ApplicationController
   # PATCH/PUT /resevations/1.json
   def update
     respond_to do |format|
+      @resevation.user_id = current_user.id
       if @resevation.update(resevation_params)
         format.html { redirect_to @resevation, notice: 'Resevation was successfully updated.' }
         format.json { render :show, status: :ok, location: @resevation }

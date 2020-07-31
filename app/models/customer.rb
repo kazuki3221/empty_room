@@ -1,3 +1,3 @@
 class Customer < ApplicationRecord
-  has_many :resevation
+  has_many :resevations
 end
