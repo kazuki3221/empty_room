@@ -6,7 +6,7 @@
   <thead>
     <tr class="table">
       <th scope="col">Start stay</th>
-      <th scope="col">End start</th>
+      <th scope="col">End stay</th>
       <th scope="col">Room number</th>
       <th scope="col">Last name</th>
       <th scope="col">First name</th>
@@ -19,7 +19,7 @@
     <% @resevations.each do |resevation| %>
       <tr>
         <td scope="row"><%= resevation.start_stay %></td>
-        <td scope="row"><%= resevation.end_start %></td>
+        <td scope="row"><%= resevation.end_stay %></td>
         <td scope="row"><%= resevation.room.number %></td>
         <td scope="row"><%= resevation.customer.last_name %></td>
         <td scope="row"><%= resevation.customer.first_name %></td>

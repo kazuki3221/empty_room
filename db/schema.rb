@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_091341) do
+ActiveRecord::Schema.define(version: 2020_08_01_041716) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_091341) do
 
   create_table "resevations", force: :cascade do |t|
     t.date "start_stay"
-    t.date "end_start"
+    t.date "end_stay"
     t.integer "room_id", null: false
     t.integer "customer_id", null: false
     t.integer "user_id", null: false
