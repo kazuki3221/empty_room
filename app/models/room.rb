@@ -1,4 +1,4 @@
 class Room < ApplicationRecord
-  has_many :resevations
+  has_many :resevation
   has_many :sale
 end

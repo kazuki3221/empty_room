@@ -49,11 +49,12 @@ end
 def resevation_stay_should_not_overlap
   return unless start_stay && end_stay
 
-  if Resevation.where(room_id: room.id)
+  if Resevation.where(room_id: room_id)
     Resevation.where('start_stay < ?', end_stay)
     Resevation.where('end_stay > ?', start_stay)
     Resevation.where.not(id: id).exists?
     Resevation.where.not(customer_id: customer_id).exists?
+    Resevation.where.not(user_id: user_id).exists?
     errors.add(:base, '他の予約と重複しています。')
     end
   end
