@@ -7,12 +7,18 @@ class ResevationsController < ApplicationController
   # GET /resevations.json
   def index
     @resevations = Resevation.all
+    @room = Resevation.where('start_stay <= ?', Date.today)
+                        .where('end_stay >= ?', Date.today)
+                        .map{|resevation|[room: resevation.room_id]}
   end
 
   # GET /resevations/1
   # GET /resevations/1.json
   def show
     @resevations = Resevation.all
+    room = Resevation.where('start_stay <= ?', Date.today)
+                        .where('end_stay >= ?', Date.today)
+                        .map{|resevation|[room: resevation.room_id]}
   end
 
   # GET /resevations/new
