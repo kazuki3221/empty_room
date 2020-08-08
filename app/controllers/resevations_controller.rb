@@ -6,16 +6,16 @@ class ResevationsController < ApplicationController
   # GET /resevations
   # GET /resevations.json
   def index
-    @resevations = Resevation.all
-    @room = Resevation.where('start_stay <= ?', Date.today)
-                        .where('end_stay >= ?', Date.today)
+    @serch_params = resevation_params
+    @resevation = Resevation.where('start_stay <= ?', @serch_params)
+                        .where('end_stay >= ?', @serch_params)
                         .map{|resevation|[room: resevation.room_id]}
   end
 
   # GET /resevations/1
   # GET /resevations/1.json
   def show
-    raise
+
     @resevations = Resevation.all
     @resevations = Resevation.where('start_stay <= ?', Date.today)
                         .where('end_stay >= ?', Date.today)
@@ -80,7 +80,7 @@ class ResevationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resevation_params
-      params.require(:resevation).permit(:start_stay, :end_stay, :room_id, :customer_id, :user_id)
+      params.fetch(:resevation,{}).permit(:start_stay, :end_stay, :room_id, :customer_id, :user_id)
     end
 
 

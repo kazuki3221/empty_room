@@ -3,12 +3,11 @@
 <h1>予約一覧</h1>
 
 <div class="search-form">
-
-
+  <%= form_with (@resevations do |f| %>
     <div class="field">
-      <%# <%= f.label :birthday %> %>
-      <%# <%= f.date_field :birthday_from, value: @search_params[:birthday_from] %> ~
-      <%# <%= f.date_field :birthday_to, value: @search_params[:birthday_to] %> %> %>
+      <%= f.label :stay %> %>
+      <%= f.date_field :start_stay, value: @search_params[:start_stay] %> ~
+      <%= f.date_field :end_stay, value: @search_params[:end_stay] %>
     </div>
 </div>
 <table>
