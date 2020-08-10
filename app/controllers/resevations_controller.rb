@@ -6,20 +6,18 @@ class ResevationsController < ApplicationController
   # GET /resevations
   # GET /resevations.json
   def index
-    @serch_params = resevation_params
-    @resevation = Resevation.where('start_stay <= ?', @serch_params)
-                        .where('end_stay >= ?', @serch_params)
-                        .map{|resevation|[room: resevation.room_id]}
+    @search_params = resevation_params
+    @search_params[:start_stay] ||= Date.today
+    @search_params[:end_stay] ||= Date.today
+    @resevations = Resevation.where('start_stay <= ?', @search_params[:start_stay])
+                             .where('end_stay >= ?', @search_params[:end_stay])
+                             .map{|resevation|[room: resevation.room_id]}
   end
 
   # GET /resevations/1
   # GET /resevations/1.json
   def show
-
-    @resevations = Resevation.all
-    @resevations = Resevation.where('start_stay <= ?', Date.today)
-                        .where('end_stay >= ?', Date.today)
-                        .map{|resevation|[room: resevation.room_id]}
+    @resevation = Resevation.all
   end
 
   # GET /resevations/new
@@ -82,6 +80,4 @@ class ResevationsController < ApplicationController
     def resevation_params
       params.fetch(:resevation,{}).permit(:start_stay, :end_stay, :room_id, :customer_id, :user_id)
     end
-
-
   end

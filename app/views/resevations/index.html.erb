@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>予約一覧</h1>
-
-<div class="search-form">
-  <%= form_with (@resevations do |f| %>
+  <%= form_with url:'/resevations', method: :get, local: true do |f| %>
     <div class="field">
-      <%= f.label :stay %> %>
+      <%= f.label :stay %>
       <%= f.date_field :start_stay, value: @search_params[:start_stay] %> ~
       <%= f.date_field :end_stay, value: @search_params[:end_stay] %>
     </div>
-</div>
+    <%= f.submit "検索" %>
+  <% end %>
+
+
 <table>
 
   <thead>
@@ -27,15 +28,15 @@
   <tbody>
     <% @resevations.each do |resevation| %>
       <tr>
-        <td scope="row"><%= resevation.start_stay %></td>
-        <td scope="row"><%= resevation.end_stay %></td>
-        <td scope="row"><%= resevation.room.number %></td>
-        <td scope="row"><%= resevation.customer.last_name %></td>
-        <td scope="row"><%= resevation.customer.first_name %></td>
-        <td scope="row"><%= resevation.user.username %></td>
-        <td><%= link_to 'Show', resevation , class: "btn btn-outline-primary" %></td>
-        <td><%= link_to 'Edit', edit_resevation_path(resevation) , class: "btn btn-raised btn-default" %></td>
-        <td><%= link_to 'Destroy', resevation, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
+        <td scope="row"><%= @search_params[:start_stay] %></td>
+        <td scope="row"><%= @search_params[:end_stay] %></td> %>
+        <td scope="row"><%= resevation %></td>
+        <%# <td scope="row"><%= @serch_params[:customer][:last_name] %></td> %>
+        <%# <td scope="row"><%= resevation.customer.first_name %></td>
+        <%# <td scope="row"><%= resevation.user.username %></td>
+        <%# <td><%= link_to 'Show', resevation , class: "btn btn-outline-primary" %></td>
+        <%# <td><%= link_to 'Edit', edit_resevation_path(resevation) , class: "btn btn-raised btn-default" %></td>
+        <%# <td><%= link_to 'Destroy', resevation, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
       </tr>
     <% end %>
 
