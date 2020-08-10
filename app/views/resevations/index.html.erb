@@ -25,20 +25,33 @@
     </tr>
   </thead>
 
+
+
   <tbody>
-    <% @resevations.each do |resevation| %>
+
       <tr>
         <td scope="row"><%= @search_params[:start_stay] %></td>
         <td scope="row"><%= @search_params[:end_stay] %></td> %>
-        <td scope="row"><%= resevation %></td>
-        <%# <td scope="row"><%= @serch_params[:customer][:last_name] %></td> %>
-        <%# <td scope="row"><%= resevation.customer.first_name %></td>
-        <%# <td scope="row"><%= resevation.user.username %></td>
+        <% Room.all.each do |room| %>
+
+          <% if @resevations[room.id] %>
+          <%# // 対象の部屋に予約がある場合の表示 %>
+           <td scope="row">部屋番号：<%= room.number %></td>
+           <% @resevations.each do |resevation| %>
+            予約者：<%= resevation[room.id].customer.first_name %>
+            <% end %>
+          <% else %>
+          <%# // 対象の部屋に予約がない場合の表示 %>
+          <% end %>
+        <% end %>
+        <%# <td scope="row"><%= @serch_params[:customer][:last_name] </td> %>
+        <%# <td scope="row"><%= resevation.customer.first_name </td>%>
+        <%# <td scope="row"><%= resevation.user.username </td>%>
         <%# <td><%= link_to 'Show', resevation , class: "btn btn-outline-primary" %></td>
         <%# <td><%= link_to 'Edit', edit_resevation_path(resevation) , class: "btn btn-raised btn-default" %></td>
         <%# <td><%= link_to 'Destroy', resevation, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
       </tr>
-    <% end %>
+
 
   </tbody>
 </table>
