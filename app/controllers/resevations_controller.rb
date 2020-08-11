@@ -15,6 +15,7 @@ class ResevationsController < ApplicationController
                              .map{|resevation|[resevation.room_id, resevation.attributes]}
 
 
+
   end
 
   # GET /resevations/1

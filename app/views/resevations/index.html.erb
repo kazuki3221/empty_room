@@ -12,34 +12,23 @@
 
 
 <table>
-
   <thead>
-    <tr class="table">
-      <th scope="col">Start stay</th>
-      <th scope="col">End stay</th>
-      <th scope="col">Room number</th>
-      <th scope="col">Last name</th>
-      <th scope="col">First name</th>
-      <th scope="col">User name</th>
-      <th colspan="1"></th>
-    </tr>
+
+    <th>宿泊開始日</th>
+    <th>宿泊終了日</th>
+    <th>部屋番号</th>
   </thead>
-
-
-
   <tbody>
 
-      <tr>
-        <td scope="row"><%= @search_params[:start_stay] %></td>
-        <td scope="row"><%= @search_params[:end_stay] %></td> %>
         <% Room.all.each do |room| %>
-
+      <tr>
           <% if @resevations[room.id] %>
           <%# // 対象の部屋に予約がある場合の表示 %>
-           <td scope="row">部屋番号：<%= room.number %></td>
-           <% @resevations.each do |resevation| %>
-            予約者：<%= resevation[room.id].customer.first_name %>
-            <% end %>
+        <td scope="row"><%= @search_params[:start_stay] %></td>
+        <td scope="row"><%= @search_params[:end_stay] %></td>
+        <td scope="row"><%= room.number %></td>
+        <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
+
           <% else %>
           <%# // 対象の部屋に予約がない場合の表示 %>
           <% end %>
