@@ -17,6 +17,10 @@
     <th>宿泊開始日</th>
     <th>宿泊終了日</th>
     <th>部屋番号</th>
+    <th>苗字</th>
+    <th>名前</th>
+    <th>会社名</th>
+
   </thead>
   <tbody>
 
@@ -27,7 +31,10 @@
         <td scope="row"><%= @search_params[:start_stay] %></td>
         <td scope="row"><%= @search_params[:end_stay] %></td>
         <td scope="row"><%= room.number %></td>
+        <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
         <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
+        <td scope="row"><%= @resevations[room.id].customer.company %></td>
+
 
           <% else %>
           <%# // 対象の部屋に予約がない場合の表示 %>
