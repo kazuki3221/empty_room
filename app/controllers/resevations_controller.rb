@@ -10,8 +10,13 @@ class ResevationsController < ApplicationController
     @search_params = resevation_params
     @search_params[:start_stay] ||= Date.today
     @search_params[:end_stay] ||= Date.today
+
     @resevations = Resevation.where('start_stay <= ?', @search_params[:start_stay])
                              .where('end_stay >= ?', @search_params[:end_stay])
+    if @resevations.empty?
+      render new_resevaton_path
+    end
+
   end
 
   # GET /resevations/1
@@ -80,4 +85,6 @@ class ResevationsController < ApplicationController
     def resevation_params
       params.fetch(:resevation,{}).permit(:start_stay, :end_stay, :room_id, :customer_id, :user_id)
     end
+
+
   end
