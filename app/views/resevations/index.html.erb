@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>予約一覧</h1>
-  <%= form_with url:'/resevations', method: :get, local: true do |f| %>
+  <%= form_with model: Resevation.new, method: :get, local: true do |f| %>
     <div class="field">
       <%= f.label '宿泊日程' %>
       <%= f.date_field :start_stay, value: @search_params[:start_stay] %> ~
