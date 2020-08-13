@@ -3,23 +3,24 @@
 <h1>予約一覧</h1>
   <%= form_with model: Resevation.new, method: :get, local: true do |f| %>
     <div class="field">
-      <%= f.label '宿泊日程' %>
+      <%= f.label '宿泊開始日' %>
       <%= f.date_field :start_stay, value: @search_params[:start_stay] %> ~
+      <%= f.label '宿泊終了日' %>
       <%= f.date_field :end_stay, value: @search_params[:end_stay] %>
     </div>
     <%= f.submit "検索" %>
   <% end %>
 
 
-<table>
+<table class="table">
   <thead>
 
-    <th>宿泊開始日</th>
-    <th>宿泊終了日</th>
-    <th>部屋番号</th>
-    <th>苗字</th>
-    <th>名前</th>
-    <th>会社名</th>
+    <th scope="col">宿泊開始日</th>
+    <th scope="col">宿泊終了日</th>
+    <th scope="col">部屋番号</th>
+    <th scope="col">苗字</th>
+    <th scope="col">名前</th>
+    <th scope="col">会社名</th>
 
   </thead>
   <tbody>
@@ -34,17 +35,17 @@
         <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
         <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
         <td scope="row"><%= @resevations[room.id].customer.company %></td>
-
+        <td><%= link_to 'Show', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
+        <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
           <% else %>
 
           <% end %>
         <% end %>
-        <%# <td scope="row"><%= @serch_params[:customer][:last_name] </td> %>
-        <%# <td scope="row"><%= resevation.customer.first_name </td>%>
-        <%# <td scope="row"><%= resevation.user.username </td>%>
-        <%# <td><%= link_to 'Show', resevation , class: "btn btn-outline-primary" %></td>
-        <%# <td><%= link_to 'Edit', edit_resevation_path(resevation) , class: "btn btn-raised btn-default" %></td>
-        <%# <td><%= link_to 'Destroy', resevation, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
+
+
+
+
       </tr>
 
 
