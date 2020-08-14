@@ -39,7 +39,7 @@
         <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
         <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
           <% else %>
-
+        <%= render 'form', partial:'new_resevation_path' ,class:"col-3"%>
           <% end %>
         <% end %>
 

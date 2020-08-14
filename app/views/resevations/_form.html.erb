@@ -1,10 +1,10 @@
-<%= form_with(model: resevation, local: true) do |form| %>
-  <% if resevation.errors.any? %>
+<%= form_with(model: @resevation, local: true) do |form| %>
+  <% if @resevation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(resevation.errors.count, "error") %> prohibited this resevation from being saved:</h2>
+      <h2><%= pluralize(@resevation.errors.count, "error") %> prohibited this resevation from being saved:</h2>
 
       <ul>
-        <% resevation.errors.full_messages.each do |message| %>
+        <% @resevation.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
