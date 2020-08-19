@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'mysql2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -34,12 +34,19 @@ gem 'omniauth-twitter'
 gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 gem 'faker'
-
+gem 'dotenv-rails'
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
+group :production, :staging do
+    gem 'unicorn'
+
+end
+  
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+# Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 

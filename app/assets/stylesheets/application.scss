@@ -4,8 +4,8 @@
  */
 
 
- @import '~bootstrap/scss/bootstrap';
- // ログイン画面
+ @import "../../../node_modules/bootstrap/scss/bootstrap";
+ 
 
  .container-login {
    @extend .container-fluid;
@@ -13,7 +13,7 @@
    padding: 2rem;
  }
 
- // 「ログインしました」などのフラッシュ用スタイル
+ 
 
  .alert-notice {
    @extend .alert-info;
