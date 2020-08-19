@@ -37,7 +37,7 @@ gem 'faker'
 gem 'dotenv-rails'
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 group :production, :staging do
