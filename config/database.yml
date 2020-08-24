@@ -5,7 +5,6 @@ default: &default
 
 development:
   <<: *default
-  database: roomempty_development
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
 
@@ -21,5 +20,5 @@ production:
   database: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOSTNAME'] %>
+  host:     <%= ENV['DB_HOSTNAME'] %>
 
