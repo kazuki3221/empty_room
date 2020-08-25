@@ -25,9 +25,9 @@
   </thead>
   <tbody>
 
-        <% Room.all.each do |room| %>
+        <%  Room.all.each do |room| %>
       <tr>
-          <% if @resevations[room.id] %>
+          <% if debug @resevations[room.id] %>
           <%# // 対象の部屋に予約がある場合の表示 %>
         <td scope="row"><%= @resevations[room.id][:start_stay] %></td>
         <td scope="row"><%= @resevations[room.id][:end_stay] %></td>

@@ -1,24 +1,46 @@
-# README
+# 空室管理アプリ
+---
+## 概要
+### 業務効率化と集客力アップ
+#### これはホテルの従業員がつかう空室管理を行うアプリです。検索機能があり、知りたい予約をすぐしることができます。
+---
+##リンク
+### https://www.emptyroom.work
+## 使用技術一覧
+---
+- インフラ
+  - AWS (VPC, EC2, RDS, ALB, Route53)
+- バックエンド
+  - Ruby 2.6.3p62
+  - Rails 6.0.3
+  - MySQL 8.0.21
+  - Devise
+- フロントエンド
+  -bootstrap
+---
+## 機能一覧
+- ユーザー登録機能（削除、更新、詳細）
+- 顧客登録機能（削除、更新、一覧、詳細）
+- 部屋一覧
+- 予約(検索機能、登録機能、削除、更新、詳細)
+---
+## アプリ制作の背景(当アプリの必要性)
+#### 当アプリは親が経営しているホテルで紙で顧客管理と空室管理を行っています。
+#### そのため、Wed上で管理できれば、検索機能による作業効率と、ヒューマンエラーを防げると考えます。
+#### また、従来で顧客のメールアドレスをとっていないので、メールアドレスの取得し、
+#### そのメールアドレスを使い、メルマガなどメディアに流せば、集客力アップも見込めます。
+#### コロナウイルスで集客が厳しい中、ネットを使わずビジネスをするのは集客的に機会損失が多いので、
+#### その第一歩となるようなアプリを開発しました。
+---
+## 使い方
+### トップページ  従業員登録
+### 従業員情報の登録、メールが送信後、認証可能
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### お客様一覧ページ
+### 一覧の閲覧、お客様情報の登録、お客様情報の削除、詳細の閲覧
 
-Things you may want to cover:
+### 部屋一覧ページ
+### 一覧の閲覧
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 予約一覧ページ
+### 予約を日付で検索、予約登録、予約詳細閲覧、予約削除
