@@ -14,41 +14,54 @@
 
 <table class="table">
   <thead>
-
+    <th scope="col">部屋番号</th>
     <th scope="col">宿泊開始日</th>
     <th scope="col">宿泊終了日</th>
-    <th scope="col">部屋番号</th>
     <th scope="col">苗字</th>
     <th scope="col">名前</th>
     <th scope="col">会社名</th>
-
   </thead>
   <tbody>
-
-        <%  Room.all.each do |room| %>
+      <% Room.all.each do |room| %>
       <tr>
-          <% if debug @resevations[room.id] %>
-          <%# // 対象の部屋に予約がある場合の表示 %>
-        <td scope="row"><%= @resevations[room.id][:start_stay] %></td>
-        <td scope="row"><%= @resevations[room.id][:end_stay] %></td>
-        <td scope="row"><%= room.number %></td>
-        <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
-        <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
-        <td scope="row"><%= @resevations[room.id].customer.company %></td>
-        <td><%= link_to 'Show', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
-        <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
-        <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
-
+          <td scope="row"><%= room.number %></td>
+          <% if @resevations[room.id] %>
+            <td scope="row"><%= @search_params[:start_stay] %></td>
+            <td scope="row"><%= @search_params[:end_stay] %></td>
+            <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
+            <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
+            <td scope="row"><%= @resevations[room.id].customer.company %></td>
+            <td><%= link_to 'Show', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
+            <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
+            <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
+          <% else %>
+            <td scope="row" colspan="4">予約がありません</td>
           <% end %>
         <% end %>
-
-
-
-
       </tr>
-
-
   </tbody>
+
+      <%# <tr> %>
+        <%# <%  @resevations.each do |resevation| %>
+          <%# <tr> %>
+          <%# <% if resevation %>
+          <%# // 対象の部屋に予約がある場合の表示 %>
+         <%#  %>
+         <%# <td> <%= resevation[1]["start_stay"]  </td> %>
+         <%# <th scope="col">宿泊終了日</th> %>
+         <%# <td scope="row"><%= resevation[1]["end_stay"] </td> %>
+         <%# <th scope="col">部屋番号</th> %>
+         <%# <td scope="row"><%= Room.all.room </td> %>
+
+         <%# <td scope="row"><%= room.number </td>  %>
+        <%# <td scope="row"><%= @resevations[room.id].customer.last_name </td> %>
+         <%# <td scope="row"><%= @resevations[room.id].customer.first_name </td> %>
+         <%# <td scope="row"><%= @resevations[room.id].customer.company </td> %>
+
+          <%# </tr> %>
+          <%# <% end %>
+        <%# <% end %>
+      <%# </tr> %>
 </table>
 
 <br>
