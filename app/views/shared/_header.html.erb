@@ -3,7 +3,6 @@
     <div id="Navber">
       <ul class="navbar-nav ">
           <% if user_signed_in? %>
-            <strong><%= link_to current_user.username, pages_show_path %></strong>
             <li class="nav-item active">
             <%= link_to 'プロフィール変更', edit_user_registration_path %>
             </li>
@@ -26,6 +25,10 @@
             <li class="nav-item active">
             <%= link_to 'ログイン', new_user_session_path %>
             </li>
+            <li class="nav-item active">
+            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+            </li>
+
 
           <% end %>
       </ul>

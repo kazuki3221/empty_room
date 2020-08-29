@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
     pages_show_path
   end
 
+  def check_guest
+    email = resource&.email || params[:user][:email].downcase
+    if email == 'guest@example.com'
+      redirect_to root_path,alert: 'ゲストユーザーの編集・削除できません。'
+    end
+  end
   private
   def sign_in_required
     redirect_to new_user_session_url unless user_signed_in?

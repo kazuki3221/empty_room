@@ -22,16 +22,19 @@
     <th scope="col">会社名</th>
   </thead>
   <tbody>
+
       <% Room.all.each do |room| %>
       <tr>
           <td scope="row"><%= room.number %></td>
+
           <% if @resevations[room.id] %>
+
             <td scope="row"><%= @search_params[:start_stay] %></td>
             <td scope="row"><%= @search_params[:end_stay] %></td>
             <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
             <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
             <td scope="row"><%= @resevations[room.id].customer.company %></td>
-            <td><%= link_to 'Show', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
+            <td><%= link_to 'Show', @resevations[rooms.id] , class: "btn btn-outline-primary" %></td>
             <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
             <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
           <% else %>
@@ -40,28 +43,6 @@
         <% end %>
       </tr>
   </tbody>
-
-      <%# <tr> %>
-        <%# <%  @resevations.each do |resevation| %>
-          <%# <tr> %>
-          <%# <% if resevation %>
-          <%# // 対象の部屋に予約がある場合の表示 %>
-         <%#  %>
-         <%# <td> <%= resevation[1]["start_stay"]  </td> %>
-         <%# <th scope="col">宿泊終了日</th> %>
-         <%# <td scope="row"><%= resevation[1]["end_stay"] </td> %>
-         <%# <th scope="col">部屋番号</th> %>
-         <%# <td scope="row"><%= Room.all.room </td> %>
-
-         <%# <td scope="row"><%= room.number </td>  %>
-        <%# <td scope="row"><%= @resevations[room.id].customer.last_name </td> %>
-         <%# <td scope="row"><%= @resevations[room.id].customer.first_name </td> %>
-         <%# <td scope="row"><%= @resevations[room.id].customer.company </td> %>
-
-          <%# </tr> %>
-          <%# <% end %>
-        <%# <% end %>
-      <%# </tr> %>
 </table>
 
 <br>

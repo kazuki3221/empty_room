@@ -51,6 +51,6 @@
 
 <p>アカウントをキャンセルしますか？</p>
 
-<p>Unhappy? <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "本気ですか" }, method: :delete , class: 'btn btn-raised btn-primary'%></p>
+<p>変更をキャンセル <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete , class: 'btn btn-raised btn-primary'%></p>
 
 <%= link_to "Back", :back %>
