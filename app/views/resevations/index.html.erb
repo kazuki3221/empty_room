@@ -27,18 +27,17 @@
       <tr>
           <td scope="row"><%= room.number %></td>
 
-          <% if @resevations[room.id] %>
-
-            <td scope="row"><%= @search_params[:start_stay] %></td>
-            <td scope="row"><%= @search_params[:end_stay] %></td>
-            <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
-            <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
-            <td scope="row"><%= @resevations[room.id].customer.company %></td>
-            <td><%= link_to 'Show', @resevations[rooms.id] , class: "btn btn-outline-primary" %></td>
-            <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
-            <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
+          <% if @resevations[room.id].present? %>
+             <td scope="row"><%= @resevations[room.id]["start_stay"] %></td>
+             <td scope="row"><%= @resevations[room.id]["end_stay"] %></td>
+             <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
+             <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
+             <td scope="row"><%= @resevations[room.id].customer.company %></td>
+             <td><%= link_to 'Show', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
+             <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
+             <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
           <% else %>
-            <td scope="row" colspan="4">予約がありません</td>
+            <td scope="row" colspan="8">予約がありません</td>
           <% end %>
         <% end %>
       </tr>
