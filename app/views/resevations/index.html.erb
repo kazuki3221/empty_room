@@ -6,7 +6,7 @@
       <%= f.label '宿泊開始日' %>
       <%= f.date_field :start_stay, value: @search_params[:start_stay] %> ~
       <%= f.label '宿泊終了日' %>
-      <%= f.date_field :end_stay, value: @search_params[:end_stay] %>
+      <%= f.date_field :end_stay,value: @search_params[:end_stay] %>
     </div>
     <%= f.submit "検索" %>
   <% end %>
