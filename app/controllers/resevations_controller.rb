@@ -9,10 +9,9 @@ class ResevationsController < ApplicationController
     @search_params = resevation_params
     @search_params[:start_stay] ||= Date.today
     @search_params[:end_stay] ||= Date.today
-    @resevations = Resevation.where('start_stay >= ?', @search_params[:start_stay])
-                             .where('end_stay <= ?', @search_params[:end_stay])
+    @resevations = Resevation.where('start_stay <= ?', @search_params[:start_stay])
+                             .where('? <= end_stay', @search_params[:start_stay])
                              .map{|resevation|[resevation.room_id, resevation]}.to_h
-
   end
 
   # GET /resevations/1
