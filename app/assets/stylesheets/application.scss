@@ -5,7 +5,14 @@
 
 
  @import "../../../node_modules/bootstrap/scss/bootstrap";
- 
+
+
+
+.bootstrap-date {
+  display: inline-block;
+  width: auto;
+}
+
 
  .container-login {
    @extend .container-fluid;
@@ -13,7 +20,7 @@
    padding: 2rem;
  }
 
- 
+
 
  .alert-notice {
    @extend .alert-info;
@@ -26,3 +33,5 @@
  .btn {
    padding: 2rem;
  }
+
+

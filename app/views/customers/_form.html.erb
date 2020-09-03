@@ -1,7 +1,7 @@
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h2><%= pluralize(customer.errors.count, "つの間違いがあり、") %>この条件では登録できません。</h2>
 
       <ul>
         <% customer.errors.full_messages.each do |message| %>
@@ -13,58 +13,63 @@
 
   <div class="form-row col-4">
 
+
+  <div class="form-group col-md-5">
+    <%= form.label  '氏名（姓）' %>
+    <%= form.text_field :last_name ,class:"form-control"%>
+  </div>
+
     <div class="form-group col-md-5">
-    <%= form.label :first_name %>
+    <%= form.label '氏名（名）' %>
     <%= form.text_field :first_name ,class:"form-control"%>
     </div>
 
-    <div class="form-group col-md-5">
-      <%= form.label :last_name %>
-      <%= form.text_field :last_name ,class:"form-control"%>
-    </div>
 
   </div>
 
   <div class="form-row col-4">
 
     <div class="form-group col-md-5">
-      <%= form.label :first_name_kana %>
-      <%= form.text_field :first_name_kana ,class:"form-control" %>
+      <%= form.label '氏名（姓）かな' %>
+      <%= form.text_field :last_name_kana, class:"form-control" %>
     </div>
 
     <div class="form-group col-md-5">
-      <%= form.label :last_name_kana %>
-      <%= form.text_field :last_name_kana, class:"form-control" %>
+      <%= form.label '氏名（名）かな' %>
+      <%= form.text_field :first_name_kana ,class:"form-control" %>
     </div>
 
   </div>
 
   <div class="form-group col-2">
-    <%= form.label :birthday %>
-    <%= form.date_select :birthday ,{class: "form-control"} %>
+    <%= form.label '生年月日' %>
+    <%= form.date_select :birthday , {use_month_numbers: true,
+                                     start_year: 1930,end_year: (Time.now.year - 18),
+                                    default: Date.new(1989, 1, 1)},
+                                    {class: "form-control"} %>
   </div>
 
     <div class="form-group col-2">
-      <%= form.label :email %>
+      <%= form.label 'メールアドレス' %>
       <%= form.text_field :email ,class:"form-control"%>
     </div>
 
 
     <div class="form-group col-2">
-    <%= form.label :company %>
+    <%= form.label '会社名' %>
     <%= form.text_field :company ,class:"form-control"%>
     </div>
 
 
 
   <div class="form-group col-2">
-    <%= form.label :tel %>
+    <%= form.label '電話番号' %>
     <%= form.text_field :tel, class:"form-control"%>
   </div>
 
 
   <div class="form-group col-2">
-    <%= form.label :placeholder %>
+    <%= form.label 'メモ' %>
     <%= form.text_area :placeholder, class:"form-control"%>
   </div>
 

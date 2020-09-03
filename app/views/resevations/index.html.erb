@@ -10,7 +10,7 @@
     </div>
     <%= f.submit "検索" %>
   <% end %>
-
+<%= link_to '新規予約を追加', new_resevation_path , class: 'btn  btn-raised btn-primary' %>
 
 <table class="table">
   <thead>
@@ -38,6 +38,7 @@
              <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
           <% else %>
             <td scope="row" colspan="8">予約がありません</td>
+            <td><%= link_to '予約を追加', new_resevation_path(@resevations[room.id]),method: :get , class: 'btn  btn-raised btn-primary' %></td>
           <% end %>
         <% end %>
       </tr>
@@ -46,4 +47,4 @@
 
 <br>
 
-<%= link_to '予約を追加', new_resevation_path , class: 'btn  btn-raised btn-primary' %>
+

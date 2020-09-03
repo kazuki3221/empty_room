@@ -3,8 +3,7 @@ class ResevationsController < ApplicationController
   before_action :authenticate_user!
 
 
-  # GET /resevations
-  # GET /resevations.json
+
   def index
     @search_params = resevation_params
     @search_params[:start_stay] ||= Date.today
@@ -35,7 +34,7 @@ class ResevationsController < ApplicationController
     @resevation.user_id = current_user.id
     respond_to do |format|
       if @resevation.save
-        format.html { redirect_to @resevation, notice: 'Resevation was successfully created.' }
+        format.html { redirect_to @resevation, notice: '予約を登録しました。' }
         format.json { render :show, status: :created, location: @resevation }
       else
         format.html { render :new }
@@ -44,13 +43,11 @@ class ResevationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /resevations/1
-  # PATCH/PUT /resevations/1.json
   def update
     respond_to do |format|
       @resevation.user_id = current_user.id
       if @resevation.update(resevation_params)
-        format.html { redirect_to @resevation, notice: 'Resevation was successfully updated.' }
+        format.html { redirect_to @resevation, notice: '予約を更新しました。' }
         format.json { render :show, status: :ok, location: @resevation }
       else
         format.html { render :edit }
@@ -59,23 +56,21 @@ class ResevationsController < ApplicationController
     end
   end
 
-  # DELETE /resevations/1
-  # DELETE /resevations/1.json
+
   def destroy
     @resevation.destroy
     respond_to do |format|
-      format.html { redirect_to resevations_url, notice: 'Resevation was successfully destroyed.' }
+      format.html { redirect_to resevations_url, notice: '予約を削除しました。' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_resevation
       @resevation = Resevation.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def resevation_params
       params.fetch(:resevation,{}).permit(:start_stay, :end_stay, :room_id, :customer_id, :user_id)
     end
