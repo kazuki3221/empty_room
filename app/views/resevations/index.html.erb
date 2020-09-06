@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>予約一覧</h1>
   <%= form_with model: Resevation.new, method: :get, local: true do |f| %>
@@ -33,12 +32,11 @@
              <td scope="row"><%= @resevations[room.id].customer.last_name %></td>
              <td scope="row"><%= @resevations[room.id].customer.first_name %></td>
              <td scope="row"><%= @resevations[room.id].customer.company %></td>
-             <td><%= link_to 'Show', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
-             <td><%= link_to 'Edit', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
-             <td><%= link_to 'Destroy', @resevations[room.id], method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-raised btn-danger" %></td>
+             <td><%= link_to '詳細', @resevations[room.id] , class: "btn btn-outline-primary" %></td>
+             <td><%= link_to '編集', edit_resevation_path(@resevations[room.id]) , class: "btn btn-raised btn-default" %></td>
+             <td><%= link_to '削除', @resevations[room.id], method: :delete, data: { confirm: '削除して大丈夫ですか？' } ,class: "btn btn-raised btn-danger" %></td>
           <% else %>
             <td scope="row" colspan="8">予約がありません</td>
-            <td><%= link_to '予約を追加', new_resevation_path(@resevations[room.id]),method: :get , class: 'btn  btn-raised btn-primary' %></td>
           <% end %>
         <% end %>
       </tr>
